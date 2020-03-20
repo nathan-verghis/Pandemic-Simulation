@@ -66,13 +66,13 @@ class Person:
         If dead then they have no more impact on the population"""
         if self.sick:
             change = randint(1, 100)
-            if change < mortality:
+            if change <= mortality:
                 self.isolated = True
                 self.speed = [0, 0]
                 self.alive = False
                 self.sick = False
                 self.image = pygame.image.load("green square.png")
-            elif change < recovery:
+            elif change <= recovery:
                 self.sick = False
                 self.image = pygame.image.load("white box.png")
 
@@ -125,9 +125,9 @@ for i in range(100):
     is_isolated = False
     is_infected = False
     temp = randint(1, 100)
-    if temp < isolation:
+    if temp <= isolation:
         is_isolated = True
-    if temp < infected:
+    if temp <= infected:
         is_infected = True
     new_person = Person(is_isolated, is_infected)
     new_person.ps = \
